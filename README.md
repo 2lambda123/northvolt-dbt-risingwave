@@ -1,6 +1,6 @@
 # dbt-risingwave
 
-A [RisingWave](https://github.com/risingwavelabs/risingwave) 
+A [RisingWave](https://github.com/risingwavelabs/risingwave)
 adapter plugin for [dbt](https://www.getdbt.com/).
 
 **RisingWave** is a cloud-native streaming database that uses SQL as the interface language. It is designed to reduce the complexity and cost of building real-time applications. https://www.risingwave.com
