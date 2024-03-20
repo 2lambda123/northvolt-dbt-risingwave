@@ -22,7 +22,6 @@ class RisingWaveRelationType(StrEnum):
 class RisingWaveRelation(PostgresRelation):
     type: Optional[RisingWaveRelationType] = None
 
-
     @classproperty
     def get_relation_type(cls) -> Type[RisingWaveRelationType]:
         return RisingWaveRelationType
