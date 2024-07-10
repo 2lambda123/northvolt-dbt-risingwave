@@ -3,7 +3,7 @@
 -- Here we only query table, view, materialized view and source. (without index and SINK)
 {% macro risingwave__list_relations_without_caching(schema_relation) %}
   {% call statement('list_relations_without_caching', fetch_result=True) -%}
-    select 
+    select
     '{{ schema_relation.database }}' as database,
     rw_relations.name as name,
     rw_schemas.name as schema,
@@ -61,7 +61,7 @@
 
   create index if not exists
   "{{ index_name }}"
-  on {{ relation }} 
+  on {{ relation }}
   ({{ comma_separated_columns }});
 {%- endmacro %}
 
@@ -88,35 +88,35 @@
 {% endmacro %}
 
 {% macro risingwave__create_view_as(relation, sql) -%}
-  create view if not exists {{ relation }} 
+  create view if not exists {{ relation }}
     {% set contract_config = config.get('contract') %}
     {% if contract_config.enforced %}
       {{ get_assert_columns_equivalent(sql) }}
     {%- endif %}
-  as ( 
-    {{ sql }} 
+  as (
+    {{ sql }}
   );
 {%- endmacro %}
 
 {% macro risingwave__create_table_as(relation, sql) -%}
-  create table if not exists {{ relation }} 
+  create table if not exists {{ relation }}
     {% set contract_config = config.get('contract') %}
     {% if contract_config.enforced %}
       {{ get_assert_columns_equivalent(sql) }}
     {%- endif %}
-  as ( 
-    {{ sql }} 
+  as (
+    {{ sql }}
   );
 {%- endmacro %}
 
 {% macro risingwave__create_materialized_view_as(relation, sql) -%}
-  create materialized view if not exists {{ relation }} 
+  create materialized view if not exists {{ relation }}
     {% set contract_config = config.get('contract') %}
     {% if contract_config.enforced %}
       {{ get_assert_columns_equivalent(sql) }}
     {%- endif %}
-  as ( 
-    {{ sql }} 
+  as (
+    {{ sql }}
   );
 {%- endmacro %}
 
