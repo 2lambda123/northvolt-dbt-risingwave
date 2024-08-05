@@ -18,7 +18,7 @@ repos:
   - id: trailing-whitespace
   - id: check-case-conflict
 - repo: https://github.com/psf/black
-  rev: 24.4.2
+  rev: 24.8.0
   hooks:
   - id: black
     args:
@@ -33,14 +33,14 @@ repos:
     - "--check"
     - "--diff"
 - repo: https://github.com/pycqa/flake8
-  rev: 7.1.0
+  rev: 7.1.1
   hooks:
   - id: flake8
   - id: flake8
     alias: flake8-check
     stages: [manual]
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v1.11.0
+  rev: v1.11.1
   hooks:
   - id: mypy
     args: [--show-error-codes, --ignore-missing-imports]
